@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amortization Calculator | Mark John C. Serato</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="bg-[radial-gradient(circle_at_top,_rgba(201,176,137,0.18),_transparent_35%),_linear-gradient(180deg,_#ffffff_0%,_#f8f0e6_100%)] text-stone-900 antialiased">
+  <div class="min-h-screen px-6 py-8 lg:px-10">
+    <div class="mx-auto max-w-4xl rounded-[32px] border border-stone-300/50 bg-white/95 p-8 shadow-[0_30px_60px_rgba(113,94,70,0.12)]">
+      <a href="/" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-900 hover:underline">← Back to portfolio</a>
+      <h1 class="mt-6 text-4xl font-semibold text-stone-950 text-center mb-6">Amortization Calculator</h1>
+      <p class="mt-4 text-base leading-8 text-stone-700">Calculate your loan payments. Enter your loan amount, interest rate, and term to see monthly payments and a full amortization schedule.</p>
+   <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6">
+  <h2 class="text-xl font-semibold text-stone-900 text-center mb-6">
+    Borrower's Information
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-semibold text-stone-700">
+        Last Name
+      </label>
+      <input
+        type="text"
+        id="lastName"
+        placeholder="e.g.,  Cruz"
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm font-semibold text-stone-700">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        placeholder="e.g., Juan"
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+    </div>
+    <div>
+      <label class="block text-sm font-semibold text-stone-700">
+        Middle Name
+      </label>
+      <input
+        type="text"
+        id="middleName"
+        placeholder="e.g., Dela "
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+    </div>  
+    <div>
+      <label class="block text-sm font-semibold text-stone-700">
+        Suffix Name
+      </label>
+      <input
+        type="text"
+        id="suffixName"
+        placeholder="e.g., Jr. "
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+    </div>   
+  </div>
+    <div>
+      <label class="block text-sm font-semibold text-stone-700">Address</label>
+      <input
+        type="text"
+        id="address"
+        placeholder="e.g., Pusok, Lapu-Lapu City. Cebu"
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+      <div>
+      <label class="block text-sm font-semibold text-stone-700">Occupation</label>
+      <input
+        type="text"
+        id="occupation"
+        placeholder="e.g., Software Engineer"
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+       </div>
+      <div>
+      <label class="block text-sm font-semibold text-stone-700">Monthly Income</label>
+      <input
+        type="text"
+        id="monthlyIncome"
+        placeholder="e.g., 20000"
+        class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900"
+      />
+       </div>
+    </div>
+    
+</div> 
+ <!-- <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6">
+          <h2 class="text-xl font-semibold text-stone-900 text-center">Borrower's Information </h2>
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">  2 columns in this form 
+          <div>
+              <label class="block text-sm font-semibold text-stone-700">Enter Last name</label>
+              <input type="text" id="lastName" placeholder="e.g., Dela Cruz" class="mt-2 w-half rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900" />
+          </div>
+          <div>
+              <label class="block text-sm font-semibold text-stone-700">Enter First name</label>
+              <input type="text" id="firstName" placeholder="e.g., Juan" class="mt-2 w-half rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900" />
+          </div>
+            </div>
+          </div>   
+    </div>
+-->
+      <div class="mt-8 grid gap-8 lg:grid-cols-2">
+        <!-- Calculator Form -->
+        <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6">
+          <h2 class="text-xl font-semibold text-stone-900">Calculator</h2>
+          
+          <div class="mt-6 space-y-4">
+            <div>
+              <label class="block text-sm font-semibold text-stone-700">Loan Amount (₱)</label>
+              <input type="number" id="loanAmount" placeholder="e.g., 500000" class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900" value="1000" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-stone-700">Annual Interest Rate (%)</label>
+              <input type="number" id="interestRate" placeholder="e.g., 5.5" class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900" value="5.0" step="0.01" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-stone-700">Loan Term (Months)</label>
+              <input type="number" id="loanTerm" placeholder="e.g., 60" class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900" value="12" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-stone-700">Loan Start Date</label>
+              <input type="date" id="startDate" class="mt-2 w-full rounded-lg border border-stone-300 bg-white px-4 py-2 text-stone-900" />
+            </div>
+            <button onclick="calculateAmortization()" class="mt-6 w-full rounded-full bg-amber-100 px-4 py-3 font-semibold text-amber-900 transition hover:bg-amber-200">Calculate Payment</button>
+          </div>
+
+          <!-- Results Summary -->
+          <div id="resultsSummary" class="mt-8 hidden space-y-3 rounded-2xl bg-white p-4">
+            <div>
+              <p class="text-xs uppercase tracking-[0.24em] text-stone-600">Monthly Payment</p>
+              <p class="text-2xl font-semibold text-amber-900">₱<span id="monthlyPayment">0.00</span></p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.24em] text-stone-600">Total Interest</p>
+              <p class="text-lg font-semibold text-stone-900">₱<span id="totalInterest">0.00</span></p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.24em] text-stone-600">Total Payment</p>
+              <p class="text-lg font-semibold text-stone-900">₱<span id="totalPayment">0.00</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortization Schedule -->
+        <div class="rounded-3xl border border-stone-200 bg-stone-50 p-6">
+          <h2 class="text-xl font-semibold text-stone-900 text-center mb-6" >Amortization Schedule</h2>
+          <div>
+            <p class="text-sm text-stone-600">Complete Name</p>
+            <p id="fullName" class="text-base font-semibold text-stone-900">&nbsp;</p>
+            <p class="text-sm text-stone-600 mt-4">Address</p>
+            <p id="borrowAddress" class="text-base text-stone-900">&nbsp;</p>
+            <p class="text-sm text-stone-600 mt-4">Occupation</p>
+            <p id="borrowOccupation" class="text-base text-stone-900">&nbsp;</p>
+            <p class="text-sm text-stone-600 mt-4">Monthly Income</p>
+            <p id="borrowIncome" class="text-base text-stone-900">&nbsp;</p>
+          </div>
+          <div class="mt-3 flex items-center justify-between gap-2">
+            <p id="borrowInfo" class="text-sm text-stone-600">&nbsp;</p>
+            <button onclick="printSchedule()" class="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900 hover:bg-amber-200">Print</button>
+          </div>
+          <div id="scheduleContainer" class="mt-6 max-h-96 overflow-y-auto">
+            <p class="text-sm text-stone-600">Calculate to see schedule</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 rounded-3xl bg-blue-50 p-6 text-stone-800">
+        <p class="font-semibold">How it works:</p>
+        <ul class="mt-3 list-inside list-disc space-y-2 text-sm">
+          <li>Enter the loan amount in Philippine Peso (₱)</li>
+          <li>Set your annual interest rate (e.g., 5.5% for 5.5)</li>
+          <li>Choose the loan term in months</li>
+          <li>Click "Calculate Payment" to see the monthly amount and full schedule</li>
+          <li>The amortization schedule shows each month's principal, interest, and remaining balance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateAmortization() {
+      const loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+      const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+      const months = parseInt(document.getElementById('loanTerm').value) || 0;
+      const startDateInput = document.getElementById('startDate').value;
+      const startDate = startDateInput ? new Date(startDateInput) : new Date();
+
+      if (loanAmount <= 0 || annualRate < 0 || months <= 0) {
+        alert('Please enter valid values');
+        return;
+      }
+
+      // Calculate monthly interest rate
+      const monthlyRate = annualRate / 100 / 12;
+
+      // Calculate monthly payment using the amortization formula
+      const monthlyPayment = 
+        loanAmount * 
+        (monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+        (Math.pow(1 + monthlyRate, months) - 1);
+
+      // Build amortization schedule
+      let balance = loanAmount;
+      let totalInterest = 0;
+      let scheduleHTML = '';
+
+      // Show borrowed date at top
+      const borrowedStr = startDate.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      document.getElementById('borrowInfo').textContent = `Borrowed: ${borrowedStr}`;
+
+      // Populate full name from borrower inputs (if present)
+      const firstName = (document.getElementById('firstName') && document.getElementById('firstName').value) ? document.getElementById('firstName').value.trim() : '';
+      const lastName = (document.getElementById('lastName') && document.getElementById('lastName').value) ? document.getElementById('lastName').value.trim() : '';
+      const middleName = (document.getElementById('middleName') && document.getElementById('middleName').value) ? document.getElementById('middleName').value.trim() : '';
+      const suffix = (document.getElementById('suffixName') && document.getElementById('suffixName').value) ? document.getElementById('suffixName').value.trim() : '';
+      const composedFullName = [firstName, middleName, lastName, suffix].filter(Boolean).join(' ');
+      const fullNameEl = document.getElementById('fullName');
+      if (fullNameEl) fullNameEl.textContent = composedFullName || '\u00A0';
+
+      const address = (document.getElementById('address') && document.getElementById('address').value) ? document.getElementById('address').value.trim() : '';
+      const occupation = (document.getElementById('occupation') && document.getElementById('occupation').value) ? document.getElementById('occupation').value.trim() : '';
+      const monthlyIncomeRaw = (document.getElementById('monthlyIncome') && document.getElementById('monthlyIncome').value) ? document.getElementById('monthlyIncome').value.trim() : '';
+      const monthlyIncome = monthlyIncomeRaw ? (monthlyIncomeRaw.match(/^₱/) ? monthlyIncomeRaw : `₱${monthlyIncomeRaw}`) : '';
+      const addressEl = document.getElementById('borrowAddress');
+      const occupationEl = document.getElementById('borrowOccupation');
+      const incomeEl = document.getElementById('borrowIncome');
+      if (addressEl) addressEl.textContent = address || '\u00A0';
+      if (occupationEl) occupationEl.textContent = occupation || '\u00A0';
+      if (incomeEl) incomeEl.textContent = monthlyIncome || '\u00A0';
+
+      function addMonths(date, monthsToAdd) {
+        const d = new Date(date.getTime());
+        const day = d.getDate();
+        d.setMonth(d.getMonth() + monthsToAdd);
+        if (d.getDate() !== day) d.setDate(0);
+        return d;
+      }
+
+      for (let month = 1; month <= months; month++) {
+        const interestPayment = balance * monthlyRate;
+        const principalPayment = monthlyPayment - interestPayment;
+        balance -= principalPayment;
+        totalInterest += interestPayment;
+
+        // Prevent negative balance due to rounding
+        if (balance < 0) balance = 0;
+
+        // Payment date: assume first payment is one month after borrow date
+        const paymentDate = addMonths(startDate, month);
+        const paymentStr = paymentDate.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+
+        scheduleHTML += `
+          <div class="border-b border-stone-300 py-2 text-xs">
+            <div class="grid grid-cols-2 gap-2">
+              <p class="font-semibold text-stone-900">Payment ${month} — ${paymentStr}</p>
+              <p class="text-right text-stone-600">₱${monthlyPayment.toFixed(2)}</p>
+              <p class="text-stone-700">Principal: ₱${principalPayment.toFixed(2)}</p>
+              <p class="text-right text-stone-700">Interest: ₱${interestPayment.toFixed(2)}</p>
+              <p class="text-stone-600">Balance: ₱${Math.max(0, balance).toFixed(2)}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      // Update results
+      document.getElementById('monthlyPayment').textContent = monthlyPayment.toFixed(2);
+      document.getElementById('totalInterest').textContent = totalInterest.toFixed(2);
+      document.getElementById('totalPayment').textContent = (loanAmount + totalInterest).toFixed(2);
+      document.getElementById('resultsSummary').classList.remove('hidden');
+      document.getElementById('scheduleContainer').innerHTML = scheduleHTML || '<p class="text-sm text-stone-600">No schedule data</p>';
+    }
+
+    function printSchedule() {
+      const scheduleHTML = document.getElementById('scheduleContainer').innerHTML;
+      const borrowInfo = document.getElementById('borrowInfo').textContent || '';
+      const printableFullName = document.getElementById('fullName') ? document.getElementById('fullName').textContent : '';
+      const printableAddress = document.getElementById('borrowAddress') ? document.getElementById('borrowAddress').textContent : '';
+      const printableOccupation = document.getElementById('borrowOccupation') ? document.getElementById('borrowOccupation').textContent : '';
+      const printableIncome = document.getElementById('borrowIncome') ? document.getElementById('borrowIncome').textContent : '';
+      const title = document.title || 'Amortization Schedule';
+      const w = window.open('', '_blank');
+      if (!w) {
+        alert('Please allow popups to print the schedule.');
+        return;
+      }
+      w.document.write(`<!doctype html><html><head><title>${title}</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;padding:18px;color:#111} h1{font-size:18px;margin:0 0 8px} p{margin:4px 0;color:#444} .item{border-bottom:1px solid #ddd;padding:8px 0;font-size:12px} .grid{display:grid;grid-template-columns:1fr auto;gap:8px}</style></head><body>`);
+      w.document.write(`<h1>${title}</h1>`);
+      if (printableFullName) w.document.write(`<p><strong>Name:</strong> ${printableFullName}</p>`);
+      if (printableAddress) w.document.write(`<p><strong>Address:</strong> ${printableAddress}</p>`);
+      if (printableOccupation) w.document.write(`<p><strong>Occupation:</strong> ${printableOccupation}</p>`);
+      if (printableIncome) w.document.write(`<p><strong>Monthly Income:</strong> ${printableIncome}</p>`);
+      w.document.write(`<p>${borrowInfo}</p>`);
+      w.document.write(`<div>${scheduleHTML}</div>`);
+      w.document.write('</body></html>');
+      w.document.close();
+      w.focus();
+      setTimeout(() => { w.print(); w.close(); }, 300);
+    }
+
+    // Calculate on page load with default values
+    window.addEventListener('load', () => {
+      // set default start date to today if not set
+      const sd = document.getElementById('startDate');
+      if (sd && !sd.value) sd.value = new Date().toISOString().slice(0,10);
+      calculateAmortization();
+    });
+  </script>
+</body>
+</html>
