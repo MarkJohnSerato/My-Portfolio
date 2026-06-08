@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3300; // Use the PORT environment variable if i
 
 app.use(express.json()); // Parse JSON requests
 app.use(express.static(__dirname)); // Serve static files from the root directory
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the "public" directory
 app.use('/placeholder-pages', express.static(path.join(__dirname, 'placeholder-pages'))); // Serve placeholder pages explicitly
 
 app.get('/api/projects', (req, res) => { // This route returns a list of projects for the portfolio. You can add more projects to this array as needed.

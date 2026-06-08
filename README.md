@@ -1,3 +1,74 @@
+# Mark John's Portfolio
+
+This repository hosts a simple portfolio site served with Node.js/Express and prepared for deployment on Vercel.
+
+## Contents
+
+- `index.html` — main landing page
+- `styles.css` — site styles
+- `server.js` — original Express server for local development
+- `api/index.js` — Express app adapted for Vercel serverless function
+- `placeholder-pages/` — example project pages
+- `package.json` — project metadata and dependencies
+- `vercel.json` — Vercel routing and build configuration
+
+## Prerequisites
+
+- Node.js (>=14)
+- npm (comes with Node)
+- Vercel CLI (optional for CLI-based deploy):
+
+```bash
+npm install -g vercel
+```
+
+## Install and run locally
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the server (local Express):
+
+```bash
+npm start
+# Opens http://localhost:3300 by default
+```
+
+Note: The repository contains an Express server (`server.js`) for local development and an `api/index.js` entry prepared for Vercel serverless deployment.
+
+## Deploy to Vercel
+
+1. Login and link (first time):
+
+```bash
+vercel login
+vercel
+```
+
+2. Deploy a production release:
+
+```bash
+vercel --prod
+```
+
+Vercel will detect the `vercel.json` and route requests to the serverless function at `api/index.js`. Static assets are served from the project root and the `placeholder-pages/` directory.
+
+## Notes & troubleshooting
+
+- If you prefer purely static hosting, remove the Express server and serve `index.html` and `placeholder-pages/` as static files.
+- If an API route returns 500 on Vercel, check the function logs in the Vercel dashboard or run `vercel logs <deployment-url>`.
+- Ensure `node_modules` is not committed; it is ignored by `.gitignore`.
+
+## Next steps
+
+- Connect the repo to GitHub and enable automatic deployments in the Vercel dashboard.
+- Add a custom domain via Vercel settings.
+
+---
+
 # Mark John C. Serato Portfolio
 
 Interactive portfolio landing page built with HTML, CSS, Tailwind, Node.js, and Express.
